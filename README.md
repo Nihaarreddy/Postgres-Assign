@@ -1,4 +1,4 @@
-
+``` bash
 C:\Users\Minfy>```psql --version```
 psql (PostgreSQL) 17.5
 
@@ -909,3 +909,4 @@ university_db=> SELECT * FROM enrollments;
 
 
 university_db=> grade CHAR(1) CHECK (grade IN ('A', 'B', 'C', 'D', 'F', 'W', NULL))
+```
