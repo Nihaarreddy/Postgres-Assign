@@ -1,8 +1,8 @@
 
-C:\Users\Minfy>psql --version
+C:\Users\Minfy>```psql --version```
 psql (PostgreSQL) 17.5
 
-C:\Users\Minfy>psql -U postgres
+C:\Users\Minfy>```psql -U postgres```
 Password for user postgres:
 
 psql (17.5)
@@ -13,8 +13,8 @@ Type "help" for help.
 
 
                                               
-                                              ^
-postgres=# CREATE USER NihaarMinfy WITH PASSWORD 'Nihaar@6';
+                                              
+postgres=# ```CREATE USER NihaarMinfy WITH PASSWORD 'Nihaar@6';```
 CREATE ROLE
 postgres=# CREATE DATABASE minfy_db OWNER NihaarMinfy
 postgres-# GRANT ALL PRIVILEGES ON DATABASE minfy_db TO NihaarMinfy
@@ -25,7 +25,7 @@ postgres-# \q
 
 
 
-C:\Users\Minfy>psql -U postgres
+C:\Users\Minfy>```psql -U postgres```
 Password for user postgres:
 
 psql (17.5)
@@ -34,15 +34,15 @@ WARNING: Console code page (437) differs from Windows code page (1252)
          page "Notes for Windows users" for details.
 Type "help" for help.
 
-postgres=# CREATE USER university_admin WITH PASSWORD 'nihaar';
+postgres=#``` CREATE USER university_admin WITH PASSWORD 'nihaar';```
 CREATE ROLE
-postgres=# CREATE DATABASE university_db OWNER university_admin;
+postgres=#``` CREATE DATABASE university_db OWNER university_admin;```
 CREATE DATABASE
-postgres=# GRANT ALL PRIVILEGES ON DATABASE university_db TO university_admin;
+postgres=#  ```GRANT ALL PRIVILEGES ON DATABASE university_db TO university_admin;```
 GRANT
 postgres=# \q
 
-C:\Users\Minfy>psql -U university_admin -d university_db
+C:\Users\Minfy>```psql -U university_admin -d university_db```
 Password for user university_admin:
 
 psql (17.5)
@@ -66,12 +66,12 @@ university_db=> \l
                |                  |          |                 |                            |                            |        |           | university_admin=CTc/university_admin
 (4 rows)        ^Z^X\q
 
-C:\Users\Minfy>psql -U university_admin -d university_db
+C:\Users\Minfy>```psql -U university_admin -d university_db```
 Password for user university_admin:
 
 psql: error: connection to server at "localhost" (::1), port 5432 failed: fe_sendauth: no password supplied
 
-C:\Users\Minfy>psql -U postgres
+C:\Users\Minfy>```psql -U postgres```
 Password for user postgres:
 
 psql (17.5)
@@ -80,8 +80,8 @@ WARNING: Console code page (437) differs from Windows code page (1252)
          page "Notes for Windows users" for details.
 Type "help" for help.
 
-postgres=# psql -U university_admin -d university_db
-postgres-# psql -U university_admin -d university_db
+postgres=# ```psql -U university_admin -d university_db```
+postgres-# ```psql -U university_admin -d university_db```
 postgres-# \q
 
 C:\Users\Minfy>psql -U university_admin -d university_db
