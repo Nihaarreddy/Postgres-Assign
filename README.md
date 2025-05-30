@@ -11,13 +11,8 @@ WARNING: Console code page (437) differs from Windows code page (1252)
          page "Notes for Windows users" for details.
 Type "help" for help.
 
-postgres=# CREATE USER NihaarMinfy WITH PASSWORD Nihaar@6;
-ERROR:  syntax error at or near "Nihaar"
-LINE 1: CREATE USER NihaarMinfy WITH PASSWORD Nihaar@6;
-                                              ^
-postgres=# CREATE USER NihaarMinfy WITH PASSWORD "Nihaar@6";
-ERROR:  syntax error at or near ""Nihaar@6""
-LINE 1: CREATE USER NihaarMinfy WITH PASSWORD "Nihaar@6";
+
+                                              
                                               ^
 postgres=# CREATE USER NihaarMinfy WITH PASSWORD 'Nihaar@6';
 CREATE ROLE
@@ -28,30 +23,7 @@ invalid command \
 Try \? for help.
 postgres-# \q
 
-C:\Users\Minfy>psql -U NihaarMinfy -d minfy_db
-Password for user NihaarMinfy:
 
-psql: error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "NihaarMinfy"
-
-C:\Users\Minfy>psql -U NihaarMinfy -d minfy_db
-Password for user NihaarMinfy:
-
-psql: error: connection to server at "localhost" (::1), port 5432 failed: fe_sendauth: no password supplied
-
-C:\Users\Minfy>psql -U NIhaarMinfy -d minfy_db
-Password for user NIhaarMinfy:
-
-psql: error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "NIhaarMinfy"
-
-C:\Users\Minfy>psql -U NihaarMinfy -d minfy_db
-Password for user NihaarMinfy:
-
-psql: error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "NihaarMinfy"
-
-C:\Users\Minfy>psql -U NihaarMinfy -d minfy_db
-Password for user NihaarMinfy:
-
-psql: error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "NihaarMinfy"
 
 C:\Users\Minfy>psql -U postgres
 Password for user postgres:
@@ -78,6 +50,8 @@ WARNING: Console code page (437) differs from Windows code page (1252)
          8-bit characters might not work correctly. See psql reference
          page "Notes for Windows users" for details.
 Type "help" for help.
+
+
 
 university_db=> \l
                                                                                   List of databases
@@ -119,18 +93,6 @@ WARNING: Console code page (437) differs from Windows code page (1252)
          page "Notes for Windows users" for details.
 Type "help" for help.
 
-university_db=> CREATE TABLE [IF NOT EXISTS] STUDENTS(
-university_db(> ID INT ,
-university_db(> CREATE TABLE [IF NOT EXISTS] STUDENT
-university_db(>
-university_db(>
-university_db(>
-university_db(>
-university_db(>
-university_db(>
-university_db(>
-university_db(>
-university_db(> ^X^Z^Z^X\q
 
 C:\Users\Minfy>psql -U university_admin -d university_db
 Password for user university_admin:
@@ -149,6 +111,8 @@ university_db(> email VARCHAR(100),
 university_db(> dob DATE);
 CREATE TABLE
 university_db=> \dt
+
+
               List of relations
  Schema |   Name   | Type  |      Owner
 --------+----------+-------+------------------
@@ -156,7 +120,11 @@ university_db=> \dt
 (1 row)
 
 
+
+
 university_db=> \d
+
+
               List of relations
  Schema |   Name   | Type  |      Owner
 --------+----------+-------+------------------
@@ -166,7 +134,11 @@ university_db=> \d
 
 university_db=> ALTER TABLE students ADD COLUMN enrollment_date DATE;
 ALTER TABLE
+
+
 university_db=> \d students
+
+
                           Table "public.students"
      Column      |          Type          | Collation | Nullable | Default
 -----------------+------------------------+-----------+----------+---------
@@ -186,6 +158,8 @@ LINE 2: ALTER TABLE students DROP COLUMN enrollment_date;
 university_db=> ALTER TABLE students DROP COLUMN enrollment_date;
 ALTER TABLE
 university_db=> \d students
+
+
                        Table "public.students"
    Column   |          Type          | Collation | Nullable | Default
 ------------+------------------------+-----------+----------+---------
@@ -196,9 +170,13 @@ university_db=> \d students
  dob        | date                   |           |          |
 
 
+
+
 university_db=> ALTER TABLE students ALTER COLUMN email TYPE VARCHAR(150);
 ALTER TABLE
 university_db=> \d students
+
+
                        Table "public.students"
    Column   |          Type          | Collation | Nullable | Default
 ------------+------------------------+-----------+----------+---------
@@ -209,9 +187,11 @@ university_db=> \d students
  dob        | date                   |           |          |
 
 
+
 university_db=> ALTER TABLE students RENAME COLUMN dob TO d_o_b;
 ALTER TABLE
 university_db=> \d
+
               List of relations
  Schema |   Name   | Type  |      Owner
 --------+----------+-------+------------------
@@ -220,6 +200,7 @@ university_db=> \d
 
 
 university_db=> \d students;
+
                        Table "public.students"
    Column   |          Type          | Collation | Nullable | Default
 ------------+------------------------+-----------+----------+---------
@@ -240,6 +221,8 @@ LINE 2: ALTER TABLE learners RENAME TO students;
 university_db=> ALTER TABLE learners RENAME TO students;;
 ALTER TABLE
 university_db=> \d
+
+
               List of relations
  Schema |   Name   | Type  |      Owner
 --------+----------+-------+------------------
@@ -249,9 +232,7 @@ university_db=> \d
 
 university_db=> ALTER TABLE students ADD COLUMN phone_number VARCHAR(20);
 ALTER TABLE
-university_db=> \D
-invalid command \D
-Try \? for help.
+
 university_db=> \d
               List of relations
  Schema |   Name   | Type  |      Owner
@@ -261,6 +242,8 @@ university_db=> \d
 
 
 university_db=> \d students;
+
+
                         Table "public.students"
     Column    |          Type          | Collation | Nullable | Default
 --------------+------------------------+-----------+----------+---------
@@ -275,6 +258,8 @@ university_db=> \d students;
 university_db=> ALTER TABLE students DROP COLUMN phone_number;
 ALTER TABLE
 university_db=> \d students;
+
+
                        Table "public.students"
    Column   |          Type          | Collation | Nullable | Default
 ------------+------------------------+-----------+----------+---------
@@ -289,6 +274,8 @@ university_db=> INSERT INTO students
 university_db-> VALUES (1,'Nihaar','Reddy','nihaar.reddy@gmail.com','2004-07-12');
 INSERT 0 1
 university_db=> \d students;
+
+
                        Table "public.students"
    Column   |          Type          | Collation | Nullable | Default
 ------------+------------------------+-----------+----------+---------
@@ -303,6 +290,8 @@ university_db=> INSERT INTO students
 university_db-> VALUES (2,'uday','uday','uday@gmail.com','2003-10-13');
 INSERT 0 1
 university_db=> VALUES (3,'sheik','sheik','sheik@gmail.com','2004-11-20');
+
+
  column1 | column2 | column3 |     column4     |  column5
 ---------+---------+---------+-----------------+------------
        3 | sheik   | sheik   | sheik@gmail.com | 2004-11-20
@@ -319,6 +308,8 @@ university_db=> INSERT INTO students
 university_db-> VALUES (5,'god','god','god@gmail.com','2004-11-22');
 INSERT 0 1
 university_db=> SELECT * FROM students;
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           1 | Nihaar     | Reddy     | nihaar.reddy@gmail.com | 2004-07-12
@@ -349,6 +340,8 @@ LINE 1: SELECT * FROM students WHERE d_o_b >= '2004-07-2004';
                                               ^
 HINT:  Perhaps you need a different "datestyle" setting.
 university_db=> SELECT * FROM students WHERE d_o_b >= '2004-07-12';
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           1 | Nihaar     | Reddy     | nihaar.reddy@gmail.com | 2004-07-12
@@ -359,6 +352,8 @@ university_db=> SELECT * FROM students WHERE d_o_b >= '2004-07-12';
 
 
 university_db=> SELECT * FROM students WHERE d_o_b BETWEEN '2002-01-01' and '2005-01-01';
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           1 | Nihaar     | Reddy     | nihaar.reddy@gmail.com | 2004-07-12
@@ -370,6 +365,8 @@ university_db=> SELECT * FROM students WHERE d_o_b BETWEEN '2002-01-01' and '200
 
 
 university_db=> SELECT * FROM students WHERE first_name LIKE 'N%';
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           1 | Nihaar     | Reddy     | nihaar.reddy@gmail.com | 2004-07-12
@@ -377,12 +374,16 @@ university_db=> SELECT * FROM students WHERE first_name LIKE 'N%';
 
 
 university_db=> SELECT * FROM students WHERE first_name LIKE 'n%';
+
+
  student_id | first_name | last_name | email | d_o_b
 ------------+------------+-----------+-------+-------
 (0 rows)
 
 
 university_db=> SELECT * FROM students WHERE first_name ILIKE 'n%';
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           1 | Nihaar     | Reddy     | nihaar.reddy@gmail.com | 2004-07-12
@@ -390,6 +391,8 @@ university_db=> SELECT * FROM students WHERE first_name ILIKE 'n%';
 
 
 university_db=> SELECT * FROM students WHERE student_id IN (1,3,5);
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           1 | Nihaar     | Reddy     | nihaar.reddy@gmail.com | 2004-07-12
@@ -411,6 +414,8 @@ ERROR:  relation "student" does not exist
 LINE 1: SELECT * FROM student WHERE student_id = 2;
                       ^
 university_db=> SELECT * FROM students WHERE student_id = 2;
+
+
  student_id | first_name | last_name |     email      |   d_o_b
 ------------+------------+-----------+----------------+------------
           2 | uday       | uday      | uday@gmail.com | 2003-10-13
@@ -418,6 +423,8 @@ university_db=> SELECT * FROM students WHERE student_id = 2;
 
 
 university_db=> SELECT * FROM students WHERE d_o_b <= '2003-01-01';
+
+
  student_id | first_name | last_name | email |   d_o_b
 ------------+------------+-----------+-------+------------
           4 | Diana      | Prince    |       | 2000-01-01
@@ -425,12 +432,16 @@ university_db=> SELECT * FROM students WHERE d_o_b <= '2003-01-01';
 
 
 university_db=> SELECT * FROM students WHERE first_name LIKE 'B%' OR first_name LIKE 'C%';
+
+
  student_id | first_name | last_name | email | d_o_b
 ------------+------------+-----------+-------+-------
 (0 rows)
 
 
 university_db=> SELECT * FROM students WHERE email LIKE '%example.com';
+
+
  student_id | first_name | last_name | email | d_o_b
 ------------+------------+-----------+-------+-------
 (0 rows)
@@ -448,6 +459,8 @@ university_db-> SET email = 'newmail@gmail.com'
 university_db-> WHERE student_id = 5;
 UPDATE 1
 university_db=> SELECT * FROM students;
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           1 | Nihaar     | Reddy     | nihaar.reddy@gmail.com | 2004-07-12
@@ -468,6 +481,8 @@ university_db-> SET student_id = 6
 university_db-> WHERE first_name = 'god';
 UPDATE 1
 university_db=> SELECT * FROM students;
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           1 | Nihaar     | Reddy     | nihaar.reddy@gmail.com | 2004-07-12
@@ -492,6 +507,8 @@ university_db-> SET email = 'Diana@gmail.com'
 university_db-> WHERE first_name = 'Diana';
 UPDATE 1
 university_db=> SELECT * FROM students;
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           1 | Nihaar     | Reddy     | nihaar.reddy@gmail.com | 2004-07-12
@@ -507,6 +524,8 @@ university_db=> DELETE FROM students
 university_db-> WHERE student_id = 99;
 DELETE 0
 university_db=> SELECT * FROM students ORDER BY last_name;
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           6 | god        | god       | newmail@gmail.com      | 2004-11-22
@@ -523,6 +542,8 @@ ERROR:  syntax error at or near "DES"
 LINE 1: SELECT * FROM students ORDER BY last_name DES C;
                                                   ^
 university_db=> SELECT * FROM students ORDER BY last_name DESC;
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           2 | uday       | uday      | uday@gmail.com         | 2003-10-13
@@ -535,6 +556,8 @@ university_db=> SELECT * FROM students ORDER BY last_name DESC;
 
 
 university_db=> SELECT * FROM students;
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           1 | Nihaar     | Reddy     | nihaar.reddy@gmail.com | 2004-07-12
@@ -547,6 +570,8 @@ university_db=> SELECT * FROM students;
 
 
 university_db=> SELECT * FROM students ORDER BY D_O_B;
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           5 | Diana      | Prince    | Diana@gmail.com        | 2000-01-01
@@ -559,6 +584,8 @@ university_db=> SELECT * FROM students ORDER BY D_O_B;
 
 
 university_db=> SELECT * FROM students ORDER BY last_name DESC,first_name ASC;
+
+
  student_id | first_name | last_name |         email          |   d_o_b
 ------------+------------+-----------+------------------------+------------
           2 | uday       | uday      | uday@gmail.com         | 2003-10-13
@@ -571,6 +598,8 @@ university_db=> SELECT * FROM students ORDER BY last_name DESC,first_name ASC;
 
 
 university_db=> SELECT * FROM students ORDER BY d_o_b LIMIT 2;
+
+
  student_id | first_name | last_name |      email      |   d_o_b
 ------------+------------+-----------+-----------------+------------
           5 | Diana      | Prince    | Diana@gmail.com | 2000-01-01
@@ -588,6 +617,8 @@ university_db=> SELECT * FROM students ORDER BY d_o_b LIMIT 2;
 university_db=> INSERT INTO students VALUES (7,'sheik','sheik','sheik@gmail.com','2003-01-02');
 INSERT 0 1
 university_db=> SELECT DISTINCT first_name, last_name, email, d_o_b FROM students;
+
+
  first_name | last_name |         email          |   d_o_b
 ------------+-----------+------------------------+------------
  sheik      | sheik     | sheik@gmail.com        | 2003-01-02
@@ -679,6 +710,8 @@ university_db-> FROM students
 university_db-> GROUP BY last_name
 university_db-> HAVING COUNT(*) > 1
 university_db-> ORDER BY number_of_students DESC;
+
+
  last_name | number_of_students
 -----------+--------------------
  sheik     |                  2
@@ -689,6 +722,8 @@ university_db=> SELECT first_name, COUNT(*) AS number_of_students
 university_db-> FROM students
 university_db-> GROUP BY first_name
 university_db-> ;
+
+
  first_name | number_of_students
 ------------+--------------------
  sheik      |                  2
